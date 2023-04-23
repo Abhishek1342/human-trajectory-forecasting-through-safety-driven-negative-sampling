@@ -12,7 +12,7 @@ class ValueNetwork1(nn.Module):
         self.self_state_dim = self_state_dim
         self.lstm_hidden_dim = lstm_hidden_dim
         self.mlp = mlp(self_state_dim + lstm_hidden_dim, mlp_dims)
-        self.lstm = nn.LSTM(input_dim, lstm_hidden_dim, batch_first=True)
+        self.lstm = nn.LSTM(input_dim, lstm_hidden_dim, batch_first=True, bidirectional=True) # bidirectional
 
     def forward(self, state):
         """
